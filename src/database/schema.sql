@@ -1,5 +1,7 @@
 CREATE DATABASE mycontacts;
 
+\c mycontacts;
+
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE IF NOT EXISTS categories (
@@ -15,3 +17,5 @@ CREATE TABLE IF NOT EXISTS contacts (
   category_id UUID,
   FOREIGN KEY(category_id) REFERENCES categories(id)
 );
+
+\dt

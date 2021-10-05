@@ -6,7 +6,9 @@
   "author": "Matheus Goes",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "up": "docker-compose up"
   },
   "dependencies": {
     "express": "^4.17.1",

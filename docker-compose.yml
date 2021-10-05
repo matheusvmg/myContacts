@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  postgres-db:
+    container_name: postgres_db
+    image: postgres:13.3-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=matheusvmg
+      - POSTGRES_PASSWORD=0105vasco
+    volumes:
+      - ./src/database/schema.sql:/docker-entrypoint-initdb.d/db.sql
+      - ./data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+  mycontacts-api:
+    container_name: mycontacts-api
+    build:
+      context: .
+    restart: always
+    command: yarn start
+    depends_on:
+      - postgres-db
+    ports:
+      - 3333:3333

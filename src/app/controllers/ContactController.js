@@ -15,7 +15,7 @@ class ContactController {
 
     if (!contact) {
       // 404 - Not Found
-      return response.status(404).json({ error: 'User not found!' });
+      return response.status(404).json({ error: 'Contact not found!' });
     }
 
     response.json(contact);
@@ -44,7 +44,7 @@ class ContactController {
       category_id,
     });
 
-    response.json(contact);
+    response.status(201).json(contact);
   }
 
   async delete(request, response) {
@@ -64,7 +64,7 @@ class ContactController {
 
     if (!contactExists) {
       // 404 - Not Found
-      return response.status(404).json({ error: 'User not found!' });
+      return response.status(404).json({ error: 'Contact not found!' });
     }
 
     if (!name) {
